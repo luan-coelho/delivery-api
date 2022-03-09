@@ -5,10 +5,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Cliente {
+public class Client {
 	private Long id;
-	private String nome;
+	private String name;
 	private String email;
-	private String senha;
-	private String Telefone;
+	private String password;
+	private String phone;
 }
