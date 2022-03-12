@@ -2,6 +2,8 @@ package com.study.delivery.api.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,12 +40,12 @@ public class ClientController {
 	
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Client addClient(@RequestBody Client client) {
+	public Client addClient(@Valid @RequestBody Client client) {
 		return clientRepository.save(client);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Client> updateClient(@PathVariable Long id, @RequestBody Client client) {
+	public ResponseEntity<Client> updateClient(@Valid @PathVariable Long id, @RequestBody Client client) {
 		if(!clientRepository.existsById(id))
 			return ResponseEntity.notFound().build();
 		
